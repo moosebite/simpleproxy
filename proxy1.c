@@ -34,7 +34,7 @@ int main() // works as "server" side
     int addrlen;            /* length of address                   */
     char buf[1000];
 
-    pid_t pid; //This wont work, nor will fork on windows. Need to use CreateThread or CreateProcess
+    pid_t pid; //This wont work, nor will fork, on windows. Need to use CreateThread or CreateProcess
 
     memset((char *)&sad, 0, sizeof(sad)); /* clear sockaddr structure */
     sad.sin_family = AF_INET;             /* set family to Internet   */
@@ -90,7 +90,6 @@ int main() // works as "server" side
     {
         printf("Host socket is bound\n");
     }
-    // bind()
 
     /* Listen at the port */
     if (listen(sd0, QLEN) < 0)
